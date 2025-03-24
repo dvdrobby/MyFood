@@ -26,7 +26,8 @@ class BarcodeResource extends Resource
                 Forms\Components\TextInput::make('table_number')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('images')
+                Forms\Components\FileUpload::make('images')
+                    ->image()
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('qr_value')
@@ -44,10 +45,8 @@ class BarcodeResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('table_number')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('images')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('qr_value')
-                    ->searchable(),
+                Tables\Columns\TextColumn::make('images'),
+                Tables\Columns\TextColumn::make('qr_value'),
                 Tables\Columns\TextColumn::make('users_id')
                     ->numeric()
                     ->sortable(),

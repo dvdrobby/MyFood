@@ -20,7 +20,7 @@ class Food extends Model
         'category_id'
     ];
 
-    public function categoris()
+    public function categories()
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
